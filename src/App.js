@@ -34,7 +34,7 @@ function App() {
 
   useEffect(() => {
     function useroradmin() {
-      if (getName === "Muzaffar" && getEmail === "vincent1@gmail.com") {
+      if (getName === "Muzaffar" && getEmail === "abdulazizovmuzaffar43@gmail.com") {
         setCheck(true)
       }
       else {
