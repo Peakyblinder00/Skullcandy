@@ -16,12 +16,17 @@ import SinglePage from './pages/singlePage';
 import View from './pages/view';
 import Sidebar from './components/mainComponents/sidebar';
 import { AuthContext } from './context/authContext';
+import InsideSkull from './pages/insideSkullcandy';
+import Vision from './pages/ourMissionVision';
+import Culture from './pages/ourCulture';
+import Efforts from './pages/ourSustainableEfforts';
+import Frequency from './pages/findYourFrequency';
+import MusicMission from './pages/musicMission';
 
 function App() {
 
   const getEmail = localStorage.getItem("Email")
   const getName = localStorage.getItem("Name")
-
   const { check, setCheck } = useContext(NavbarContext)
   const { currentUser } = useContext(AuthContext)
 
@@ -34,7 +39,7 @@ function App() {
 
   useEffect(() => {
     function useroradmin() {
-      if (getName === "Muzaffar" && getEmail === "abdulazizovmuzaffar67@gmail.com") {
+      if (getName === "Muzaffar" && getEmail === "abdulazizovmuzaffar998@gmail.com") {
         setCheck(true)
       }
       else {
@@ -60,6 +65,12 @@ function App() {
         <Route path='/account' element={check ? <ProtectedRoute><Admin /></ProtectedRoute> : <ProtectedRoute><Account /></ProtectedRoute>} />
         <Route path='/single-page/:id' element={<SinglePage />} />
         <Route path='/view-cart' element={<View />} />
+        <Route path='/inside-skullcandy' element={<InsideSkull/>} />
+        <Route path='/our-mission-vision-and-values' element={<Vision/>} />
+        <Route path='/our-culture' element={<Culture/>} />
+        <Route path='/our-sustainable-efforts' element={<Efforts/>} />
+        <Route path='/find-your-frequency' element={<Frequency/>}/>
+        <Route path='/music-with-mission' element={<MusicMission/>} />
         <Route path='*' element={<h1 className='text-center text-[90px] text-[#293448] h-[28.6vh]'>404 Error: Page Not Found</h1>} />
       </Routes>
     </BrowserRouter>

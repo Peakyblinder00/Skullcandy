@@ -15,12 +15,15 @@ import { addDoc, collection } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { NavbarContext } from "../context/useContext";
 import Loader from "../components/extraComponents/loader/loader";
+import "../styles/responsive.css"
 
 function Admin() {
 
     const [nav, setNav] = useState(true)
     const navigate3 = useNavigate()
     const { loader2, setLoader2 } = useContext(NavbarContext)
+    const GETname = localStorage.getItem("Name")
+    const GETphoto = localStorage.getItem("photoURL")
 
     const AddProduct = async (e) => {
         e.preventDefault();
@@ -68,17 +71,10 @@ function Admin() {
         }
     }
 
-    function onSelect(e) {
-        if (e.files.length > 5) {
-            alert("Only 5 files accepted.");
-            e.preventDefault();
-        }
-    }
-
     const style = {
         admin: "w-[100%] h-auto flex p-[20px] bg-[#eaebec] relative",
-        mainNavigation: "w-[300px] duration-[.5s] h-[100%] bg-white mr-[20px] rounded-[15px] p-[20px] flex flex-col",
-        dashboard: "w-full h-full flex bg-white rounded-[15px] p-[30px]",
+        mainNavigation: "w-[300px] duration-[.5s] h-[100%] bg-white mr-[20px] rounded-[15px] p-[20px] sm:hidden md:flex md:flex-col",
+        dashboard: "w-full h-full flex bg-white relative rounded-[15px] p-[30px]",
         adminCollection: "list-none mt-[20px]",
         menuIconNav: "m-[10px] cursor-pointer text-[20px]",
         adminItem: "w-[100%] h-[40px] flex items-center hover:bg-[#eaebec] duration-[.1s] cursor-pointer rounded-[5px] my-[7px] px-[10px]",
@@ -87,7 +83,7 @@ function Admin() {
         adminItemIconBox: "w-[40px] h-[40px] flex items-center",
         adminItemText: `text-[#4d4d4d] text-[14px] origin-left duration-[.3s] font-semibold ${nav ? "scale-x-[1] opacity-[1] delay-[.3s]" : "scale-x-[0] opacity-[0]"}`,
         addProductTitle: "text-[#4d4d4d] text-[20px] uppercase font-extrabold",
-        addProductWrapper: "flex flex-col items-start w-[400px]",
+        addProductWrapper: "flex flex-col items-start sm:w-[400px]",
         productInp: "w-full h-[50px] bg-[#F6F6F6] border-[#DDDDDD] border-[1px] outline-none focus:border-[#4d4d4d] px-[30px] text-black text-[15px] font-normal",
         productTopText: "text-black text-[14px] mt-[20px] mb-[5px]",
         productDescription: "bg-[#F6F6F6] w-full border-[#DDDDDD] border-[1px] outline-none focus:border-[#4d4d4d] text-black text-[15px] font-normal p-[10px]",
@@ -95,7 +91,9 @@ function Admin() {
         productPlusCameraIcon: "text-[#4d4d4d] text-[30px]",
         productBtn: "mt-[30px]",
         loaderWindow: "w-full h-full fixed top-0 left-0 z-[10] hidden",
-        loaderWindowMain: "w-full h-full bg-[#000000a1] opacity-[0] grid place-items-center duration-[.3s]"
+        loaderWindowMain: "w-full h-full bg-[#000000a1] opacity-[0] grid place-items-center duration-[.3s]",
+        signIconAdmin: "text-[#4d4d4d] border-[1px] border-gray-600 px-[10px] py-[4px] rounded-[5px] sm:flex sm:items-center md:hidden absolute right-[30px] top-[20px]",
+        signOutIcon: "text-[#4d4d4d] text-[20px]"
     }
 
     return (
@@ -105,7 +103,7 @@ function Admin() {
                     <Loader />
                 </div>
             </div>
-            <div style={{ width: `${nav ? "300px" : "80px"}` }} className={style.mainNavigation}>
+            <div id="mainNav" style={{ width: `${nav ? "300px" : "80px"}` }} className={style.mainNavigation}>
                 <div onClick={() => setNav(!nav)} className={style.menuIconNav}><List /></div>
                 <ul className={style.adminCollection}>
                     <li className={style.adminItem}>
@@ -144,18 +142,22 @@ function Admin() {
                 <form onSubmit={AddProduct} className={style.addProductWrapper}>
                     <p className={style.addProductTitle}>Add Product</p>
                     <p className={style.productTopText}>Product name</p>
-                    <input className={style.productInp} type="text" />
+                    <input required className={style.productInp} type="text" />
                     <p className={style.productTopText}>About product</p>
-                    <textarea className={style.productDescription} name="" id="" cols="30" rows="5"></textarea>
+                    <textarea required className={style.productDescription} name="" id="" cols="30" rows="5"></textarea>
                     <p className={style.productTopText}>Product Image</p>
-                    <label className={style.productLabel} htmlFor="productImg"><TbCameraPlus className={style.productPlusCameraIcon} /></label>
-                    <input className="hidden" id="productImg" type="file" name="" />
+                    <label required className={style.productLabel} htmlFor="productImg"><TbCameraPlus className={style.productPlusCameraIcon} /></label>
+                    <input required className="hidden" id="productImg" type="file" name="" />
                     <p className={style.productTopText}>Product price</p>
-                    <input className={style.productInp} type="number" />
+                    <input required className={style.productInp} type="number" />
                     <button id="buttonSkewHover2" className={style.productBtn} type="submit">
                         <p id="btnText2">Add Product</p>
                     </button>
                 </form>
+                <button onClick={() => signOut(auth)} id="signOutAdmin" className={style.signIconAdmin}>
+                    <VscSignOut className={style.signOutIcon}/>
+                    <p>Sign Out</p>
+                </button>
             </div>
         </div>
     )

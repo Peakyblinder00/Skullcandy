@@ -69,7 +69,7 @@ const Sidebar = () => {
         <div style={{transform: `${sidebar ? "scaleX(1)" : "scaleX(0)"}`}} className={style.sidebar}>
             <div className={style.sidebarWrapper}>
                 <Link to="/shop" onClick={() => setBlock(!block)} style={{height: `${block ? "200px" : "auto"}`}} className={style.sidebarItems}><p className={style.sidebarItemsText}>shop</p><TbPlus className={style.tbPlusIcon}/></Link>
-                <div onClick={() => setBlock2(!block2)} style={{height: `${block2 ? "200px" : "auto"}`}} className={style.sidebarItems}><p className={style.sidebarItemsText}>inside skullcandy</p><TbPlus className={style.tbPlusIcon}/></div>
+                <Link to="inside-skullcandy" onClick={() => setBlock2(!block2)} style={{height: `${block2 ? "200px" : "auto"}`}} className={style.sidebarItems}><p className={style.sidebarItemsText}>inside skullcandy</p><TbPlus className={style.tbPlusIcon}/></Link>
                 <div onClick={() => setBlock3(!block3)} style={{height: `${block3 ? "200px" : "auto"}`}} className={style.sidebarItems}><p className={style.sidebarItemsText}>support</p><TbPlus className={style.tbPlusIcon}/></div>
                 <div onClick={() => setBlock4(!block4)} style={{height: `${block4 ? "200px" : "auto"}`}} className={style.sidebarItems}><p className={style.sidebarItemsText}>location</p><TbPlus className={style.tbPlusIcon}/></div>
                 <Link style={{display:exist2 }} to="/login" className={style.sidebarLogin}>

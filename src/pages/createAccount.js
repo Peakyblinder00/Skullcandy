@@ -100,20 +100,20 @@ const CreateAccount = () => {
       <p id="create" className={style.newAccount}>new account</p>
       <form id="form" onSubmit={SignUp} className={style.createAccountInpWrapper}>
         <p className={style.createAccountDes}>Email:</p>
-        <input className={style.createAccountInp} type="email" name="" />
+        <input required className={style.createAccountInp} type="email" name="" />
         <p className={style.createAccountDes}>Password:</p>
-        <input className={style.createAccountInp} type="password" name="" />
+        <input required className={style.createAccountInp} type="password" name="" />
         <p className={style.createAccountDes}>First Name:</p>
-        <input className={style.createAccountInp} type="text" />
+        <input required className={style.createAccountInp} type="text" />
         <p className={style.createAccountDes}>Last Name:</p>
-        <input className={style.createAccountInp} type="text" />
+        <input required className={style.createAccountInp} type="text" />
         <p className={style.createAccountDes}>Phone Number:</p>
-        <input className={style.createAccountInp} type="text" name="" />
+        <input required className={style.createAccountInp} type="text" name="" />
         <p className={style.createAccountDes}>Your Phote:</p>
-        <label className={style.createAccountInpFileLabel} htmlFor="userPhoto">
+        <label required className={style.createAccountInpFileLabel} htmlFor="userPhoto">
           <TbCameraPlus className={style.cameraPlusIcon} />
         </label>
-        <input className={style.createAccountInpFile} id="userPhoto" type="file" name="" />
+        <input required className={style.createAccountInpFile} id="userPhoto" type="file" name="" />
         <div className={style.createAccountBtnWrapper}>
           <button type="submit" to="/create-account" id="buttonSkewHover2" className="mt-[20px]">
             <p id="btnText2">create account</p>

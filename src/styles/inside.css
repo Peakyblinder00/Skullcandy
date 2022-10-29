@@ -1,0 +1,46 @@
+.ISbg{
+    background-image: url("../images/insideSkullcandy/ISbg.jpg");
+}
+.ISbg2{
+    background-image: url("../images/insideSkullcandy/ISbg2.jpg");
+}
+.ISbg3{
+    background-image: url("../images/insideSkullcandy/ISbg3.jpg");
+}
+.ISbg4{
+    background-image: url("../images/insideSkullcandy/ISbg4.jpg");
+}
+
+#buttonSkewHover{
+	border: none;
+	padding: 15px 45px;
+    overflow: hidden;
+	position: relative;
+    background-color: rgb(240, 240, 240);
+}
+
+#buttonSkewHover::before{
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    content: '';
+    width: 20px;
+    height: 100%;
+    background: white;
+    overflow: hidden;
+    position: absolute;
+    transform: skewX(17deg);
+    top: 0;
+    left: -6px;
+    right: 0;
+    margin: 0px auto;
+}
+#btnText{
+    color: white;
+    mix-blend-mode: difference;
+    font-size: 13px;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+#buttonSkewHover:hover::before{
+    background: white;
+    width: 120%;
+}

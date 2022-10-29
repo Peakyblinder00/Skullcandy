@@ -5,6 +5,7 @@ import Inside4 from "../../../images/navbarImg/inside4.jpg"
 import Inside5 from "../../../images/navbarImg/inside5.jpg"
 import { useContext } from "react"
 import { NavbarContext } from "../../../context/useContext"
+import {Link} from "react-router-dom"
 
 const Active2 = () => {
 
@@ -23,45 +24,46 @@ const Active2 = () => {
     return (
         <div onMouseEnter={() => (setActive2(true), setActive7(true))} onMouseLeave={() => (setActive2(false), setActive7(false))} style={{ transform: `${active2 ? "scaleY(1)" : "scaleY(0)"}`, transitionDelay: `${active2 ? ".3s" : ".2s"}`}} className={style.navbarHoverBox2}>
             <div style={{ opacity: `${active2 ? "1" : "0"}`, transitionDelay: `${active2 ? ".6s" : ".1s"}` }} className={style.innerNavbarHoverBox2}>
-                <div className={style.insideSkullcandyHover}>
+                <Link to="/music-with-mission" className={style.insideSkullcandyHover}>
                     <div className={style.active2ImgWrapper}>
                         <img className={style.active2Img} src={Inside1} alt="" />
                     </div>
                     <div className={style.active2HoverTextWrapper}>
                         <p className={style.active2HoverText}>music with a mission</p>
                     </div>
-                </div>
-                <div className={style.insideSkullcandyHover}>
+                </Link>
+                <Link to="/find-your-frequency" className={style.insideSkullcandyHover}>
                     <div className={style.active2ImgWrapper}>
                         <img className={style.active2Img} src={Inside2} alt="" />
                     </div>
                     <div className={style.active2HoverTextWrapper}>
                         <p className={style.active2HoverText}>find your frequency</p>
-                    </div>                </div>
-                <div className={style.insideSkullcandyHover}>
+                    </div>                
+                </Link>
+                <Link to="/our-mission-vision-and-values" className={style.insideSkullcandyHover}>
                     <div className={style.active2ImgWrapper}>
                         <img className={style.active2Img} src={Inside3} alt="" />
                     </div>
                     <div className={style.active2HoverTextWrapper}>
                         <p className={style.active2HoverText}>our mission, vision and values</p>
                     </div>
-                </div>
-                <div className={style.insideSkullcandyHover}>
+                </Link>
+                <Link to="/our-culture" className={style.insideSkullcandyHover}>
                     <div className={style.active2ImgWrapper}>
                         <img className={style.active2Img} src={Inside4} alt="" />
                     </div>
                     <div className={style.active2HoverTextWrapper}>
                         <p className={style.active2HoverText}>our culture</p>
                     </div>
-                </div>
-                <div className={style.insideSkullcandyHover}>
+                </Link>
+                <Link to="/our-sustainable-efforts" className={style.insideSkullcandyHover}>
                     <div className={style.active2ImgWrapper}>
                         <img className={style.active2Img} src={Inside5} alt="" />
                     </div>
                     <div className={style.active2HoverTextWrapper}>
                         <p className={style.active2HoverText}>our sustainable efforts</p>
                     </div>
-                </div>
+                </Link>
             </div>
         </div>
     )

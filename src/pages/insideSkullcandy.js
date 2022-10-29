@@ -1,11 +1,17 @@
+import InsideBody from "../components/insideSkullcandy/insideBody";
+import SwiperInsideSkullcandy from "../components/insideSkullcandy/insideSkullcandySwiper";
+
 const InsideSkull = () => {
 
     const style = {
-        inside: "text-[100px]"
+        inside: "w-[100%] h-auto",
     }
 
     return(
-        <div className={style.inside}>Hello Skull</div>
+        <div className={style.insideSkullcandy}>
+            <SwiperInsideSkullcandy/>
+            <InsideBody/>
+        </div>
     )
 }
 

@@ -47,9 +47,9 @@ const Login = () => {
             <div className={style.loginWrapper}>
                 <form onSubmit={Login} className={style.loginWrapperLeft}>
                     <p className={style.loginInputEmailText}>Email Address:</p>
-                    <input className={style.loginInput} type="email" name="" />
+                    <input required className={style.loginInput} type="email" name="" />
                     <p className={style.loginInputPasswordText}>Password:</p>
-                    <input className={style.loginInput} type="password" name="" />
+                    <input required className={style.loginInput} type="password" name="" />
                     <div id="btnWrapper" className={style.btnWrapper}>
                         <button type="submit" id="buttonSkewHover2">
                             <p id="btnText2">sign in</p>
